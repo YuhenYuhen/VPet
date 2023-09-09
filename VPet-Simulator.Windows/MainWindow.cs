@@ -181,6 +181,7 @@ namespace VPet_Simulator.Windows
                 if (Core != null && Core.Save != null)
                 {
                     var ds = new List<string>(Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + @"\BackUP"));
+                    ds = ds.OrderBy(f => f.CreationTime);
                     while (ds.Count > Set.BackupSaveMaxNum)
                     {
                         File.Delete(ds[0]);
